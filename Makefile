@@ -14,3 +14,6 @@ ps:
 logs:
 	@docker-compose --file ${dc} logs --follow
 
+
+install_kafkacat:
+	@sudo apt install -y kafkacat

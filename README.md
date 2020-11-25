@@ -92,6 +92,38 @@ Removing dc-kafka-zookeeper ... done
 Removing network dc-kafka_nw-kafka
 ```
 
+## [kafkacat](https://github.com/edenhill/kafkacat)
+
+kafkacat is a generic non-JVM producer and consumer for Apache Kafka >=0.8,
+think of it as a netcat for Kafka.
+
+```console
+foo@bar:~$ kafkacat -V
+kafkacat - Apache Kafka producer and consumer tool
+https://github.com/edenhill/kafkacat
+Copyright (c) 2014-2019, Magnus Edenhill
+Version 1.5.0 (JSON, librdkafka 1.2.1 builtin.features=gzip,snappy,ssl,sasl,regex,lz4,sasl_gssapi,sasl_plain,sasl_scram,plugins,sasl_oauthbearer)
+```
+
+### Check the metadata
+
+```console
+foo@bar:~$ kafkacat -L -b localhost:9092
+Metadata for all topics (from broker 0: localhost:9092/0):
+ 1 brokers:
+  broker 0 at localhost:9092 (controller)
+ 0 topics:
+```
+
+### Read the message
+
+```console
+foo@bar:~$ kafkacat -b localhost:9092 -t quickstart-events
+% Auto-selecting Consumer mode (use -P or -C to override)
+This is my first event
+% Reached end of topic quickstart-events [0] at offset 1
+```
+
 # Reference
 
 * [Apache Kafka](https://kafka.apache.org/)
