@@ -46,7 +46,7 @@ services:
       - zookeeper
     env_file:
       - kafka.env
-    image: buildingsalive/kafka:${KAFKA_VERSION}
+    image: grammyjiang/kafka:${KAFKA_VERSION}
     networks:
       - nw-kafka
     ports:
